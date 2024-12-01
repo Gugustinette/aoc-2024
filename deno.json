@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "day-1": "deno run --watch --allow-read src/day-1/index.ts"
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@1",
+    "@std/fs": "jsr:@std/fs@^1.0.6"
+  }
+}
