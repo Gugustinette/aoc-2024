@@ -38,7 +38,7 @@ function part1(): number {
   // Compute total distance
   let totalDistance = 0
   for (let i = 0; i < left.length; i++) {
-    totalDistance += left[i] > right[i] ? left[i] - right[i] : right[i] - left[i]
+    totalDistance += Math.abs(left[i] - right[i])
   }
   // Return total distance
   return totalDistance
