@@ -1,5 +1,5 @@
-import { existsSync } from "@std/fs";
-import { runAoc } from "../util/runAoc.ts";
+import { existsSync } from "@std/fs"
+import { runAoc } from "../util/runAoc.ts"
 
 interface ListInput {
   left: number[]
@@ -8,10 +8,10 @@ interface ListInput {
 function loadLists() : ListInput {
   // Check if the input file exists
   if (!existsSync("src/day-1/data.txt")) {
-    throw new Error("File not found");
+    throw new Error("File not found")
   }
   // Read the input file
-  const data = Deno.readTextFileSync("src/day-1/data.txt");
+  const data = Deno.readTextFileSync("src/day-1/data.txt")
   // Create left and right lists
   const left: number[] = []
   const right: number[] = []
