@@ -21,26 +21,26 @@ function part1(): number {
     new RegExp("XMAS", "g"),
     new RegExp("SAMX", "g"),
     // Vertical
-    new RegExp("X(.|\n){" + lineLenght + "}M(.|\n){" + lineLenght + "}A(.|\n){" + lineLenght + "}S", "g"),
-    new RegExp("S(.|\n){" + lineLenght + "}A(.|\n){" + lineLenght + "}M(.|\n){" + lineLenght + "}X", "g"),
+    new RegExp("X(?=(.|\n){" + lineLenght + "})M(?=(.|\n){" + lineLenght + "})A(?=(.|\n){" + lineLenght + "})S", "g"),
+    new RegExp("S(?=(.|\n){" + lineLenght + "})A(?=(.|\n){" + lineLenght + "})M(?=(.|\n){" + lineLenght + "})X", "g"),
     // Diagonal
-    new RegExp("X(.|\n){" + (lineLenght + 1) + "}M(.|\n){" + (lineLenght + 1) + "}A(.|\n){" + (lineLenght + 1) + "}S", "g"),
-    new RegExp("S(.|\n){" + (lineLenght + 1) + "}A(.|\n){" + (lineLenght + 1) + "}M(.|\n){" + (lineLenght + 1) + "}X", "g"),
-    new RegExp("X(.|\n){" + (lineLenght - 1) + "}M(.|\n){" + (lineLenght - 1) + "}A(.|\n){" + (lineLenght - 1) + "}S", "g"),
-    new RegExp("S(.|\n){" + (lineLenght - 1) + "}A(.|\n){" + (lineLenght - 1) + "}M(.|\n){" + (lineLenght - 1) + "}X", "g")
+    new RegExp("X(?=(.|\n){" + (lineLenght + 1) + "})M(?=(.|\n){" + (lineLenght + 1) + "})A(?=(.|\n){" + (lineLenght + 1) + "})S", "g"),
+    new RegExp("S(?=(.|\n){" + (lineLenght + 1) + "})A(?=(.|\n){" + (lineLenght + 1) + "})M(?=(.|\n){" + (lineLenght + 1) + "})X", "g"),
+    new RegExp("X(?=(.|\n){" + (lineLenght - 1) + "})M(?=(.|\n){" + (lineLenght - 1) + "})A(?=(.|\n){" + (lineLenght - 1) + "})S", "g"),
+    new RegExp("S(?=(.|\n){" + (lineLenght - 1) + "})A(?=(.|\n){" + (lineLenght - 1) + "})M(?=(.|\n){" + (lineLenght - 1) + "})X", "g")
   ]
   // Use patterns to detect occurences of XMAS
   let total = 0
   regexes.forEach((regex) => {
     const xmasOccurences = data.matchAll(regex)
-    console.log(String(regex) + " : " + xmasOccurences.toArray().length)
+    // console.log(String(regex) + " : " + xmasOccurences.toArray().length)
     total += xmasOccurences.toArray().length
   })
   return total
 }
 
 export function resolve(): void {
-  console.log("Part 1 result : " + part1())
+  console.log("Part 1 result : " + part1() + " (expected : 2297)")
   // console.log("Part 2 result : " + part2())
 }
 
