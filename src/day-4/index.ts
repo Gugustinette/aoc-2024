@@ -1,18 +1,8 @@
-import { existsSync } from "@std/fs"
-import { runAoc } from "../util/runAoc.ts"
-
-function loadData() : string {
-  // Check if the input file exists
-  if (!existsSync("src/day-4/data.txt")) {
-    throw new Error("File not found")
-  }
-  // Read the input data
-  return Deno.readTextFileSync("src/day-4/data.txt")
-}
+import { loadData } from "../util/loadData.ts";
 
 function part1(): number {
   // Load data
-  const data = loadData()
+  const data = loadData("src/day-4/data.txt")
   // Split by lines
   const lines = data.split("\n")
   const lineLength = lines[0].length
@@ -56,7 +46,7 @@ function part1(): number {
 
 function part2(): number {
   // Load data
-  const data = loadData()
+  const data = loadData("src/day-4/data.txt")
   // Split by lines
   const lines = data.split("\n")
   const lineLength = lines[0].length
@@ -82,5 +72,3 @@ export function resolve(): void {
   console.log("Part 1 result : " + part1())
   console.log("Part 2 result : " + part2())
 }
-
-runAoc(resolve)

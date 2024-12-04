@@ -1,16 +1,11 @@
-import { existsSync } from "@std/fs"
-import { runAoc } from "../util/runAoc.ts"
+import { loadData } from "../util/loadData.ts";
 
 interface Report {
   levels: number[]
 }
 function loadReports() : Report[] {
-  // Check if the input file exists
-  if (!existsSync("src/day-2/data.txt")) {
-    throw new Error("File not found")
-  }
   // Read the input file
-  const data = Deno.readTextFileSync("src/day-2/data.txt")
+  const data = loadData("src/day-2/data.txt")
   const reports: Report[] = []
   // Fill lists
   data.split("\n").forEach((inputLine) => {
@@ -91,5 +86,3 @@ export function resolve(): void {
   console.log("Part 1 result : " + part1())
   console.log("Part 2 result : " + part2())
 }
-
-runAoc(resolve)

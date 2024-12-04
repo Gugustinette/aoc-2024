@@ -1,18 +1,8 @@
-import { existsSync } from "@std/fs"
-import { runAoc } from "../util/runAoc.ts"
-
-function loadData() : string {
-  // Check if the input file exists
-  if (!existsSync("src/day-3/data.txt")) {
-    throw new Error("File not found")
-  }
-  // Read the input data
-  return Deno.readTextFileSync("src/day-3/data.txt")
-}
+import { loadData } from "../util/loadData.ts";
 
 function part1(): number {
   // Load corrupted memory
-  const corruptedMemory = loadData()
+  const corruptedMemory = loadData("src/day-3/data.txt")
   // Extract uncorrupted muls using Regex
   const mulExtractor = new RegExp("mul\\(\\d{0,3},\\d{0,3}\\)", "g")
   const muls = corruptedMemory.matchAll(mulExtractor)
@@ -46,7 +36,7 @@ interface Mul extends Instruction {
 }
 function part2(): number {
   // Load corrupted memory
-  const corruptedMemory = loadData()
+  const corruptedMemory = loadData("src/day-3/data.txt")
   const instructions: Instruction[] = []
   // Extract mul instructions using Regex
   const mulExtractor = new RegExp("mul\\(\\d{0,3},\\d{0,3}\\)", "g")
@@ -117,5 +107,3 @@ export function resolve(): void {
   console.log("Part 1 result : " + part1())
   console.log("Part 2 result : " + part2())
 }
-
-runAoc(resolve)

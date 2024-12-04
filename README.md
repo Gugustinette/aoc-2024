@@ -7,7 +7,7 @@ It is also part of the [Deno Advent of Code Challenge](https://deno.com/blog/adv
 To run the code, you'll need [Deno](https://deno.land/).
 For example, to run the code for day 1 :
 ```
-deno run day-1
+deno run day 1
 ```
 
 ## Resources

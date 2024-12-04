@@ -1,17 +1,12 @@
-import { existsSync } from "@std/fs"
-import { runAoc } from "../util/runAoc.ts"
+import { loadData } from "../util/loadData.ts";
 
 interface ListInput {
   left: number[]
   right: number[]
 }
 function loadLists() : ListInput {
-  // Check if the input file exists
-  if (!existsSync("src/day-1/data.txt")) {
-    throw new Error("File not found")
-  }
   // Read the input file
-  const data = Deno.readTextFileSync("src/day-1/data.txt")
+  const data = loadData("src/day-1/data.txt")
   // Create left and right lists
   const left: number[] = []
   const right: number[] = []
@@ -69,5 +64,3 @@ export function resolve(): void {
   console.log("Part 1 result : " + part1())
   console.log("Part 2 result : " + part2())
 }
-
-runAoc(resolve)
